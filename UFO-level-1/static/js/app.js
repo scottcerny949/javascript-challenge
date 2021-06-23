@@ -9,7 +9,7 @@ var form = d3.select("#form");
 
 var table = d3.select("#ufo-table");
 
-var tbody = d3.select("tbody");
+var tbody = d3.select("#tbody");
 
 console.log(tableData);
 
@@ -17,6 +17,9 @@ button.on("click", dataEnter);
 form.on("submit", dataEnter);
 
 function dataEnter() {
+
+    // Allows the table to refresh for each query
+    $("#tbody").empty();
 
     // Prevent the page from refreshing
     d3.event.preventDefault();
