@@ -13,6 +13,14 @@ var tbody = d3.select("#tbody");
 
 console.log(tableData);
 
+// Load the full table so user can more easily choose a date to filter by
+data.forEach(ufo => {
+  var row = tbody.append("tr")
+  Object.entries(ufo).forEach(([key, value]) =>{
+      row.append("td").text(value);
+  })
+})
+
 button.on("click", dataEnter);
 form.on("submit", dataEnter);
 
@@ -20,6 +28,8 @@ function dataEnter() {
 
     // Prevent the page from refreshing
     d3.event.preventDefault();
+    // Clear the table so only filtered dates will be shown  
+    tbody.html("");
 
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
@@ -33,10 +43,10 @@ function dataEnter() {
     var filteredData = tableData.filter(date => date.datetime === inputValue);
 
     console.log(filteredData);
-    
-    filteredData.forEach((ufo) => {
+  
+    filteredData.forEach((ufo2) => {
         var row = tbody.append("tr");
-        Object.entries(ufo).forEach(([key, value]) => {
+        Object.entries(ufo2).forEach(([key, value]) => {
           var cell = row.append("td");
           cell.text(value);
           });
