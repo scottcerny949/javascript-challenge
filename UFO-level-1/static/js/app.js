@@ -3,6 +3,7 @@ var tableData = data;
 
 // YOUR CODE HERE!
 
+// create variables
 var button = d3.select("#filter-btn");
 
 var form = d3.select("#form");
@@ -21,9 +22,11 @@ data.forEach(ufo => {
   })
 })
 
+// set up button and form
 button.on("click", dataEnter);
 form.on("submit", dataEnter);
 
+// create function to enter the filtered data to the table
 function dataEnter() {
 
     // Prevent the page from refreshing
@@ -44,12 +47,12 @@ function dataEnter() {
 
     console.log(filteredData);
   
+    // write filtered data to the table
     filteredData.forEach((ufo2) => {
         var row = tbody.append("tr");
         Object.entries(ufo2).forEach(([key, value]) => {
-          var cell = row.append("td");
-          cell.text(value);
-          });
+          row.append("td").text(value);
         });
+      });
 
 }
