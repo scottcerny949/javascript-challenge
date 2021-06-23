@@ -18,9 +18,6 @@ form.on("submit", dataEnter);
 
 function dataEnter() {
 
-    // Allows the table to refresh for each query
-    $("#tbody").empty();
-
     // Prevent the page from refreshing
     d3.event.preventDefault();
 
